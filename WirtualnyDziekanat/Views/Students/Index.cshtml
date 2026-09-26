@@ -1,0 +1,41 @@
+@model List<Student>
+@{
+    ViewData["Title"] = "Studenci";
+}
+
+<h2>Studenci</h2>
+
+<a asp-action="Add" class="btn btn-success mb-3">Dodaj studenta</a>
+
+<form method="get" class="mb-3">
+    <input type="text" name="search" value="@Context.Request.Query["search"]" placeholder="Nazwisko lub nr albumu" />
+    <button type="submit" class="btn btn-sm btn-primary">Szukaj</button>
+</form>
+
+<table class="table">
+    <tr>
+        <th>Nr albumu</th>
+        <th>Imię</th>
+        <th>Nazwisko</th>
+        <th>Kierunek</th>
+        <th>Rok</th>
+        <th></th>
+    </tr>
+    @foreach (var s in Model)
+    {
+        <tr>
+            <td>@s.StudentNumber</td>
+            <td>@s.FirstName</td>
+            <td>@s.LastName</td>
+            <td>@s.FieldOfStudy</td>
+            <td>@s.YearOfStudy</td>
+            <td>
+                <a asp-action="Details" asp-route-id="@s.Id">Oceny</a> |
+                <a asp-action="Edit" asp-route-id="@s.Id">Edytuj</a> |
+                <form asp-action="Delete" asp-route-id="@s.Id" method="post" style="display:inline">
+                    <button type="submit" class="btn btn-link p-0" onclick="return confirm('Na pewno usunąć?')">Usuń</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>

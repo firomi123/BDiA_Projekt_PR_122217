@@ -1,0 +1,26 @@
+@model Course
+@{
+    ViewData["Title"] = "Dodaj przedmiot";
+}
+
+<h2>Dodaj przedmiot</h2>
+
+<form asp-action="Add" method="post">
+    <div class="mb-2">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="mb-2">
+        <label asp-for="Lecturer"></label>
+        <input asp-for="Lecturer" class="form-control" />
+        <span asp-validation-for="Lecturer" class="text-danger"></span>
+    </div>
+    <div class="mb-2">
+        <label asp-for="ECTS"></label>
+        <input asp-for="ECTS" class="form-control" />
+        <span asp-validation-for="ECTS" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-success">Zapisz</button>
+    <a asp-action="Index">Powrót</a>
+</form>

@@ -1,0 +1,30 @@
+@model Student
+@{
+    ViewData["Title"] = "Oceny studenta";
+}
+
+<h2>@Model.FirstName @Model.LastName</h2>
+<p>Nr albumu: @Model.StudentNumber, kierunek: @Model.FieldOfStudy, rok: @Model.YearOfStudy</p>
+
+<table class="table">
+    <tr>
+        <th>Przedmiot</th>
+        <th>Ocena</th>
+        <th>Data</th>
+    </tr>
+    @foreach (var g in Model.Grades)
+    {
+        <tr>
+            <td>@g.Course?.Name</td>
+            <td>@g.Value.ToString("0.0")</td>
+            <td>@g.Date.ToString("dd.MM.yyyy")</td>
+        </tr>
+    }
+</table>
+
+@if (Model.Grades.Count > 0)
+{
+    <p>Średnia: <b>@Model.Grades.Average(g => g.Value).ToString("0.00")</b></p>
+}
+
+<a asp-action="Index">Powrót</a>

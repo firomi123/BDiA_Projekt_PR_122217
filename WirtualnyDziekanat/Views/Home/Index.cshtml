@@ -1,0 +1,10 @@
+@model VirtualDeansOffice.Queries.Statistics
+@{
+    ViewData["Title"] = "Strona główna";
+}
+
+<h2>Wirtualny Dziekanat</h2>
+
+<p>Liczba studentów: <b>@Model.StudentCount</b></p>
+<p>Liczba przedmiotów: <b>@Model.CourseCount</b></p>
+<p>Liczba ocen: <b>@Model.GradeCount</b></p>

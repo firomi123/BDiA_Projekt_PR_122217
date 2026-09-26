@@ -1,0 +1,37 @@
+@model Student
+@{
+    ViewData["Title"] = "Edytuj studenta";
+}
+
+<h2>Edytuj studenta</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="mb-2">
+        <label asp-for="FirstName"></label>
+        <input asp-for="FirstName" class="form-control" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+    <div class="mb-2">
+        <label asp-for="LastName"></label>
+        <input asp-for="LastName" class="form-control" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+    <div class="mb-2">
+        <label asp-for="StudentNumber"></label>
+        <input asp-for="StudentNumber" class="form-control" />
+        <span asp-validation-for="StudentNumber" class="text-danger"></span>
+    </div>
+    <div class="mb-2">
+        <label asp-for="FieldOfStudy"></label>
+        <input asp-for="FieldOfStudy" class="form-control" />
+        <span asp-validation-for="FieldOfStudy" class="text-danger"></span>
+    </div>
+    <div class="mb-2">
+        <label asp-for="YearOfStudy"></label>
+        <input asp-for="YearOfStudy" class="form-control" />
+        <span asp-validation-for="YearOfStudy" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Zapisz</button>
+    <a asp-action="Index">Powrót</a>
+</form>

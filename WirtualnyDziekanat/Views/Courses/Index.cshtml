@@ -1,0 +1,31 @@
+@model List<Course>
+@{
+    ViewData["Title"] = "Przedmioty";
+}
+
+<h2>Przedmioty</h2>
+
+<a asp-action="Add" class="btn btn-success mb-3">Dodaj przedmiot</a>
+
+<table class="table">
+    <tr>
+        <th>Nazwa</th>
+        <th>Prowadzący</th>
+        <th>ECTS</th>
+        <th></th>
+    </tr>
+    @foreach (var c in Model)
+    {
+        <tr>
+            <td>@c.Name</td>
+            <td>@c.Lecturer</td>
+            <td>@c.ECTS</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@c.Id">Edytuj</a> |
+                <form asp-action="Delete" asp-route-id="@c.Id" method="post" style="display:inline">
+                    <button type="submit" class="btn btn-link p-0" onclick="return confirm('Na pewno usunąć?')">Usuń</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>

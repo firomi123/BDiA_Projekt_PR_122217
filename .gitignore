@@ -1,0 +1,10 @@
+bin/
+obj/
+.vs/
+build/
+*.db
+*.db-shm
+*.db-wal
+Piotr_Roman_122217_BDiA.pdf
+sprawozdanie/*
+!sprawozdanie/sprawozdanie.pdf
